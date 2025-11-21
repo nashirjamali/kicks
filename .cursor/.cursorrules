@@ -1,0 +1,113 @@
+# Cursor Rules for KICKS dApp Frontend
+
+## TypeScript Best Practices
+
+- Always use TypeScript strict mode
+- Prefer explicit types over `any` - use `unknown` when type is truly unknown
+- Use type inference where types are obvious, but be explicit for function parameters and return types
+- Define interfaces for component props and API responses
+- Use `type` for unions/intersections, `interface` for object shapes that may be extended
+- Avoid `@ts-ignore` and `@ts-expect-error` - fix the underlying issue instead
+- Use const assertions (`as const`) for literal types
+- Prefer readonly arrays and readonly properties when data shouldn't mutate
+- Use branded types or branded primitives for domain-specific types (e.g., Address, Amount)
+
+## React/Next.js Best Practices
+
+- Use functional components with hooks only
+- Prefer named exports over default exports for components
+- Use `React.FC` or explicit return types for component functions
+- Extract custom hooks for reusable logic
+- Use `useMemo` and `useCallback` judiciously - only when performance is actually needed
+- Keep components small and focused on single responsibility
+- Use proper key props for list items (never use array index alone)
+- Handle loading and error states explicitly
+- Use Next.js App Router conventions (app directory structure)
+
+## ESLint Rules
+
+- Follow Airbnb TypeScript/React style guide
+- Enforce consistent naming: PascalCase for components, camelCase for functions/variables, UPPER_CASE for constants
+- Require explicit return types for exported functions
+- Disallow `any` type usage
+- Require error handling in async functions
+- Enforce consistent import ordering (external, internal, relative)
+- Disallow unused variables and imports
+- Require early returns to reduce nesting
+- Enforce consistent quote style (single quotes for JS/TS, double for JSX attributes)
+- Disallow console.log in production code (use proper logging)
+
+## Code Style
+
+- Use 2 spaces for indentation
+- Use semicolons consistently
+- Maximum line length: 100 characters
+- Trailing commas in multiline objects/arrays
+- Single quotes for strings, double quotes for JSX attributes
+- No trailing whitespace
+- Empty line at end of file
+
+## File Organization
+
+- One component per file
+- Co-locate related files (component + styles + tests)
+- Use index files for clean imports
+- Group imports: external packages, internal modules, relative imports
+- Keep utility functions in separate files
+
+## Naming Conventions
+
+- Components: PascalCase (e.g., `ChallengeCard.tsx`)
+- Hooks: camelCase starting with `use` (e.g., `useChallenge.ts`)
+- Utilities: camelCase (e.g., `formatDistance.ts`)
+- Constants: UPPER_SNAKE_CASE (e.g., `MAX_CHALLENGE_DURATION`)
+- Types/Interfaces: PascalCase (e.g., `ChallengeData`, `UserProfile`)
+
+## Error Handling
+
+- Always handle errors in async operations
+- Use Error boundaries for React error handling
+- Provide meaningful error messages
+- Log errors appropriately (don't expose sensitive data)
+- Use try-catch for async/await, .catch() for promises
+
+## Performance
+
+- Lazy load routes and heavy components
+- Optimize images with Next.js Image component
+- Use React.memo for expensive components that re-render frequently
+- Debounce/throttle user input handlers
+- Avoid unnecessary re-renders (check dependencies in hooks)
+
+## Security
+
+- Never commit API keys or private keys
+- Validate and sanitize user input
+- Use environment variables for sensitive configuration
+- Implement proper CORS policies
+- Validate wallet addresses and transaction data
+
+## Testing
+
+- Write unit tests for utility functions
+- Write integration tests for critical user flows
+- Test error cases, not just happy paths
+- Mock external dependencies (APIs, contracts)
+
+## Accessibility
+
+- Use semantic HTML elements
+- Provide alt text for images
+- Ensure keyboard navigation works
+- Maintain proper ARIA labels where needed
+- Ensure sufficient color contrast
+
+## Web3 Specific
+
+- Always validate wallet connection state
+- Handle network switching gracefully
+- Show transaction status (pending, success, error)
+- Display readable error messages for failed transactions
+- Use proper error handling for contract calls
+- Validate contract addresses before interactions
+
