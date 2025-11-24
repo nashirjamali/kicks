@@ -14,7 +14,7 @@ console.log('='.repeat(60));
 console.log('');
 console.log('IMPORTANT:');
 console.log('1. Save the Private Key to backend/.env as ORACLE_PRIVATE_KEY');
-console.log('2. Save the Address to contracts/.env as ORACLE_ADDRESS');
+console.log('2. Save the Address to smart-contracts/.env as ORACLE_ADDRESS');
 console.log('3. NEVER commit these values to git!');
 console.log('4. Fund this address with some ETH on Sepolia for gas (if needed)');
 console.log('='.repeat(60));

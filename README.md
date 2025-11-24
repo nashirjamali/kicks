@@ -22,7 +22,7 @@ KICKS is a commitment staking platform where users:
 ```
 kicks/
 ├── frontend/          # Next.js app
-├── contracts/         # Solidity smart contracts
+├── smart-contracts/   # Solidity smart contracts
 ├── backend/           # Node.js oracle bridge
 └── README.md
 ```
@@ -41,7 +41,7 @@ node generate-oracle-key.js
 
 This will output:
 - **Private Key**: Save this to `backend/.env` as `ORACLE_PRIVATE_KEY`
-- **Address**: Save this to `contracts/.env` as `ORACLE_ADDRESS`
+- **Address**: Save this to `smart-contracts/.env` as `ORACLE_ADDRESS`
 
 **Important**: 
 - Never commit the private key to git
@@ -51,13 +51,18 @@ This will output:
 ### 1. Smart Contracts
 
 ```bash
-cd contracts
+cd smart-contracts
 npm install
 cp .env.example .env
 # Edit .env with your configuration (including ORACLE_ADDRESS from step 0)
 npm run compile
 npm run deploy
 ```
+
+**Deployed Contract (Sepolia)**:
+- **Kicks Contract**: [`0x9e4CE4fD5856277D59d099DF46D5b34e7719a6aD`](https://sepolia.etherscan.io/address/0x9e4CE4fD5856277D59d099DF46D5b34e7719a6aD)
+- **USDT Address**: `0x7169D38820dfd117C3FA1f22a697dBA58d90BA06`
+- **Oracle Address**: `0x90CF06B13A56879b6FB2CBbC086ec937f35EFE7e`
 
 ### 2. Backend
 
@@ -93,11 +98,17 @@ npm run dev
 
 ### Frontend
 - `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID`: WalletConnect project ID
-- `NEXT_PUBLIC_KICKS_CONTRACT_ADDRESS`: Deployed contract address
-- `NEXT_PUBLIC_USDT_ADDRESS`: USDT contract address
+- `NEXT_PUBLIC_KICKS_CONTRACT_ADDRESS`: Deployed contract address (`0x9e4CE4fD5856277D59d099DF46D5b34e7719a6aD`)
+- `NEXT_PUBLIC_USDT_ADDRESS`: USDT contract address (`0x7169D38820dfd117C3FA1f22a697dBA58d90BA06`)
 - `NEXT_PUBLIC_BACKEND_URL`: Backend server URL
 - `NEXT_PUBLIC_STRAVA_CLIENT_ID`: Strava OAuth client ID
 - `STRAVA_CLIENT_SECRET`: Strava OAuth client secret
+
+## Deployed Contracts (Sepolia)
+
+- **Kicks Contract**: [`0x9e4CE4fD5856277D59d099DF46D5b34e7719a6aD`](https://sepolia.etherscan.io/address/0x9e4CE4fD5856277D59d099DF46D5b34e7719a6aD)
+- **USDT Address**: `0x7169D38820dfd117C3FA1f22a697dBA58d90BA06`
+- **Oracle Address**: `0x90CF06B13A56879b6FB2CBbC086ec937f35EFE7e`
 
 ## Smart Contract Functions
 
@@ -121,7 +132,7 @@ npm run dev
 
 1. Start backend: `cd backend && npm start`
 2. Start frontend: `cd frontend && npm run dev`
-3. Deploy contracts: `cd contracts && npm run deploy`
+3. Deploy contracts: `cd smart-contracts && npm run deploy`
 
 ## License
 
